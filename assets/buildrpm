@@ -25,17 +25,17 @@ SPECS=( $(find ${WORKSPACE} -maxdepth 1 -type f -name "*.spec") )
 # install deps and fetch any external sources
 # then do an RPM BUILD
 for spec_file in ${SPECS[@]}; do
-    dnf builddep ${spec_file} || EXIT_CODE=1
+    dnf builddep -y ${spec_file} || EXIT_CODE=1
     spectool --sourcedir --get-files ${spec_file} || EXIT_CODE=1
     rpmbuild ${RPMBUILD_OPTS} -ba --clean ${spec_file} || EXIT_CODE=1
 done
 
 # extract RPMs
-find ${RPM_BUILD_RPMS} -name "${COMPONENT}*.rpm" \
-    -exec mv {} ${OUTPUT} \; || EXIT_CODE=1
+find ${RPM_BUILD_RPMS} -name "*.rpm" \
+    -exec mv {} ${TARGET} \;
 
 # extract SRPMs
-find ${RPM_BUILD_SRPMS} -name "${COMPONENT}*.rpm" \
-    -exec mv {} ${OUTPUT} \; || EXIT_CODE=1
+find ${RPM_BUILD_SRPMS} -name "*.rpm" \
+    -exec mv {} ${TARGET} \;
 
 exit ${EXIT_CODE}
