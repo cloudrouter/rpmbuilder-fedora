@@ -9,7 +9,9 @@ RUN dnf -y updateinfo \
       dnf-plugins-core \
       rpm-build \
       rpmdevtools \
+      curl \
       vim \
+      wget \
     && dnf -y upgrade \
     && dnf clean all
 
