@@ -1,15 +1,15 @@
 # VERSION 0.3
 FROM fedora:23
 MAINTAINER "John Siegrist" <john.siegrist@complects.com>
-ENV REFRESHED_AT 2015-12-24
+ENV REFRESHED_AT 2016-03-30
 
 RUN dnf -y updateinfo \
     && dnf install -y \
-      https://repo.cloudrouter.org/fedora/23/x86_64/cloudrouter-fedora-repo-latest.noarch.rpm \
+      https://repo.cloudrouter.org/3/fedora/23/x86_64/cloudrouter-fedora-repo-latest.noarch.rpm \
+      curl \
       dnf-plugins-core \
       rpm-build \
       rpmdevtools \
-      curl \
       vim \
       wget \
     && dnf -y upgrade \
