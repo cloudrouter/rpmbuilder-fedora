@@ -1,5 +1,6 @@
 https://repo.cloudrouter.org/proving_ground/fedora/24/x86_64/cloudrouter-fedora-test-repo-latest.noarch.rpm
 curl
+deltarpm
 dnf-plugins-core
 rpm-build
 rpmdevtools

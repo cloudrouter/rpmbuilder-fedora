@@ -1,6 +1,6 @@
 FROM fedora:24
 MAINTAINER "John Siegrist" <john.siegrist@complects.com>
-ENV REFRESHED_AT=2016-10-10
+ENV REFRESHED_AT=2016-10-12
 
 ENV TARGET=/target
 ENV RPM_BUILD_DIR=/rpmbuild
